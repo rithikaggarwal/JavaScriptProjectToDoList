@@ -56,6 +56,7 @@ function newTodo() {
     var deletebutton = document.createElement("button");
     deletebutton.type = "submit";
     deletebutton.innerText = "Delete!";
+    deletebutton.className = classNames.TODO_DELETE;
     deletebutton.addEventListener("click", function() {
       var confirmation2 = confirm ("Are you sure you want to delete this from your to-do list?")
       if (confirmation2) {
