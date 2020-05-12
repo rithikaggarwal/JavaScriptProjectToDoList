@@ -57,16 +57,20 @@ function newTodo() {
     deletebutton.type = "submit";
     deletebutton.innerText = "Delete!";
     deletebutton.addEventListener("click", function() {
-      var ele = this.parentNode
-      var child = ele.childNodes
-      child = child[0]
-      if (!child.checked) {
-        uncheckedCount--;
+      var confirmation2 = confirm ("Are you sure you want to delete this from your to-do list?")
+      if (confirmation2) {
+        var ele = this.parentNode
+        var child = ele.childNodes
+        child = child[0]
+        if (!child.checked) {
+          uncheckedCount--;
+        }
+        itemCount--;
+        itemCountSpan.innerText = Number(itemCount);
+        uncheckedCountSpan.innerText = Number(uncheckedCount);
+        ele.parentNode.removeChild(ele);
       }
-      itemCount--;
-      itemCountSpan.innerText = Number(itemCount);
-      uncheckedCountSpan.innerText = Number(uncheckedCount);
-      ele.parentNode.removeChild(ele);
+
     })
 
     newItem.append(deletebutton);
